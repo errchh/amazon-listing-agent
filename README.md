@@ -1,1 +1,1 @@
-# amazon-listing-agent
+# amazon-restricted-product-agent
