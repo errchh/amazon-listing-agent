@@ -194,4 +194,5 @@ cython_debug/
 .cursorindexingignore
 
 # Project-specific files
-docs/
+#docs/
+ref/ 

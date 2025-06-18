@@ -1,0 +1,37 @@
+import os
+from .prompt import report_prompt
+from pydantic import BaseModel, Field
+
+from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
+
+
+# Define output schema 
+class RestrictionReport(BaseModel):
+    is_restricted: bool = Field(
+        description="TRUE if the product is determined to be restricted; otherwise, FALSE."
+    )
+    require_human_review: bool = Field(
+        description="TRUE if the product is determined to be restricted or product information is insufficient; otherwise, FALSE."
+    )
+    reason: str = Field(
+        description="A brief reason for restriction or insufficient product information."
+    )
+
+
+model = LiteLlm(
+    model="openrouter/microsoft/mai-ds-r1:free",
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
+
+report_agent = LlmAgent(
+    name="report_agent",
+    model=model,
+    instruction=report_prompt,
+    description="Generate a report with structured output: is_restricted, require_human_review, and reason.",
+    output_schema=RestrictionReport,
+    output_key="report",
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True,
+)
