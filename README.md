@@ -18,10 +18,10 @@ To set up and run the agent, follow these steps:
     ```bash
     uv sync
     ```
-2.  **Activate Virtual Environment:** Activate the project's isolated Python environment.
+2.  **Activate Virtual Environment** 
     ```bash
     source .venv/bin/activate
     ```
-3.  **Launch Web Interface:** Start the agent's web-based interface.
+3.  **Launch Dev UI Web Interface** 
     ```bash
-    ask web
+    adk web
