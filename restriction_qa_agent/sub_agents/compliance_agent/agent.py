@@ -1,21 +1,26 @@
 import os
-from ...utils import read_file
+
+from dotenv import load_dotenv
+load_dotenv()
+
+from utils import read_file
 from .prompt import compliance_prompt
 
 from google.adk.agents import LlmAgent
-from google.adk.models.lite_llm import LiteLlm
+# from google.adk.models.lite_llm import LiteLlm
 
 
-# Load the policy documents
-amazon_policy = read_file('../../../../docs/amazon_policy.md')
-fda_restriction = read_file('../../../../docs/fda_restriction.md')
-jurisdictional_restriction = read_file('../../../../docs/jurisdictional_restriction.md')
+amazon_policy = read_file("docs/amazon_policy.md")
+fda_regulations = read_file("docs/fda_regulations.md")
+jurisdictional_rstrictions = read_file("docs/jurisdictional_restrictions.md")
 
 
-model = LiteLlm(
-    model="openrouter/microsoft/mai-ds-r1:free",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-)
+model = "gemini-2.5-flash"
+# model = LiteLlm(
+#     model="openrouter/microsoft/mai-ds-r1:free",
+#     api_base=os.getenv("OPENROUTER_API_BASE"),
+#     api_key=os.getenv("OPENROUTER_API_KEY"),
+# )
 
 
 compliance_agent = LlmAgent(

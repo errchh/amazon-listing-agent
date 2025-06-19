@@ -1,9 +1,13 @@
 import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
 from .prompt import report_prompt
 from pydantic import BaseModel, Field
 
 from google.adk.agents import LlmAgent
-from google.adk.models.lite_llm import LiteLlm
+# from google.adk.models.lite_llm import LiteLlm
 
 
 # Define output schema 
@@ -19,10 +23,12 @@ class RestrictionReport(BaseModel):
     )
 
 
-model = LiteLlm(
-    model="openrouter/microsoft/mai-ds-r1:free",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-)
+model = "gemini-2.5-flash"
+# model = LiteLlm(
+#     model="openrouter/microsoft/mai-ds-r1:free",
+#     api_base=os.getenv("OPENROUTER_API_BASE"),
+#     api_key=os.getenv("OPENROUTER_API_KEY"),
+# )
 
 
 report_agent = LlmAgent(

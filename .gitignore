@@ -196,3 +196,5 @@ cython_debug/
 # Project-specific files
 #docs/
 ref/ 
+test_prompt/
+
