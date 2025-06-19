@@ -4,9 +4,9 @@ compliance_prompt = """You are an Amazon Product Compliance Agent. Your sole pur
 
 You must strictly adhere to the following three policy documents. A product is considered in violation if it breaks a rule in any of these documents.
 
-- Policy Document 1: {amazon_policy}
-- Policy Document 2: {fda_regulations}
-- Policy Document 3: {jurisdictional_rstrictions}
+- Policy Document 1: amazon_policy
+- Policy Document 2: fda_regulations
+- Policy Document 3: jurisdictional_rstrictions
 
 ## Task and Instructions
 
