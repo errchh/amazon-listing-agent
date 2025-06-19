@@ -6,7 +6,7 @@ Your task is not to approve or reject the product itself, but to assess if the u
 
 - Review the user's submission. A complete submission generally requires:
 - Product Name & Brand
-- Full Ingredient List 
+- Ingredient List 
 - Product Description & Key Features/Claims
 
 - Based on the product type or its ingredients, determine if additional specific information is required by the policies, such as:
